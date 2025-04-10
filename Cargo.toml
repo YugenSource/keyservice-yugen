@@ -5,3 +5,7 @@ edition = "2024"
 
 [dependencies]
 libslug = "0.3.2"
+
+subtle-encoding = "0.5.1"
+base58 = "0.2.0"
+base32ct = "0.2.2"

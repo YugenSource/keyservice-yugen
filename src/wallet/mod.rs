@@ -1,5 +1,10 @@
+#![no_std]
+
+pub mod blake2;
+
 pub trait KeyService {
     fn generate_key(&self) -> String;
+    fn generate_key_bip39(&self) -> String;
     
     // Sign and Verify
     fn sign_message(&self, message: &str) -> String;

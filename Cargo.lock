@@ -78,6 +78,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "022dfe9eb35f19ebbcb51e0b40a5ab759f46ad60cadf7297e0bd085afb50e076"
 
 [[package]]
+name = "base32ct"
+version = "0.2.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0853118289f52ce3430e1449f232bf5213066587af3d67ad3c96e3c19974edf9"
+
+[[package]]
 name = "base58"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -598,7 +604,10 @@ dependencies = [
 name = "keyservice-yugen"
 version = "0.1.0"
 dependencies = [
+ "base32ct",
+ "base58",
  "libslug",
+ "subtle-encoding",
 ]
 
 [[package]]

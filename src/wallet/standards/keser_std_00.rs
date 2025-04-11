@@ -17,12 +17,12 @@ use fixedstr::str64;
 pub struct KeserStandard;
 
 impl KeserStandard {
-    pub fn from_bytes(bytes: &[u8]) -> [u8;32] {
-        let mut fixed = [0u8;32];
-        let hasher = SlugBlake2sHasher::new(32);
+    pub fn from_bytes(bytes: &[u8]) -> [u8;28] {
+        let mut fixed = [0u8;28];
+        let hasher = SlugBlake2sHasher::new(28);
         let hash = hasher.hash(bytes);
 
-        if hash.len() == 32 {
+        if hash.len() == 28 {
             fixed.copy_from_slice(&hash);
         } else {
             panic!("Hash length mismatch");

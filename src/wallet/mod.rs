@@ -1,15 +1,24 @@
 #![no_std]
 
-pub mod blake2;
+/// Wallet KeyService Standards
+pub mod standards;
 
 pub trait KeyService {
     fn generate_key(&self) -> String;
     fn generate_key_bip39(&self) -> String;
+    fn generate_key_securerand(&self) -> String;
     
     // Sign and Verify
     fn sign_message(&self, message: &str) -> String;
     fn verify_signature(&self, message: &str, signature: &str) -> bool;
+    
+    // KeyService Address
     fn keyservice_addr(&self, standard: u8) -> String;
+}
+
+pub trait KeyServiceEncrypt {
+    fn encrypt_message(&self, message: &str) -> String;
+    fn decrypt_message(&self, encrypted_message: &str) -> String;
 }
 
 /// Keypairs:
@@ -44,6 +53,6 @@ pub trait KeyService {
 /// 
 /// 08: From Bytes Using BLAKE3 (256 bits)
 
-pub struct Wallet {
+pub struct KeSerWallet {
 
 }

@@ -9,3 +9,5 @@ libslug = "0.3.2"
 subtle-encoding = "0.5.1"
 base58 = "0.2.0"
 base32ct = "0.2.2"
+
+fixedstr = {version="0.5.9", features=["serde","no-alloc"]}

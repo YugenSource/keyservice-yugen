@@ -1,4 +1,5 @@
 use core::str;
+use std::str::Utf8Error;
 
 use libslug::slugcrypt::internals::digest::blake2::SlugBlake2sHasher;
 use subtle_encoding::hex;
@@ -27,8 +28,12 @@ impl Standard {
         let hash = hex::encode(bytes);
         String::from_utf8(hash)?
     }
-    pub fn from_output_hex_upper(bytes: &[u8]) -> Result<String,std::string::FromUtf8Error> {
+    pub fn from_output_hex_upper(bytes: &[u8]) -> Result<&str,Utf8Error> {
         let hash = hex::encode_upper(bytes);
-        String::from_utf8(hash)?
+        let x = core::str::from_utf8(&hash)?
+        Ok(x)
+    }
+    pub fn from_output_base58(bytes: &[u8]) -> String {
+        bytes.to_base58()
     }
 }
